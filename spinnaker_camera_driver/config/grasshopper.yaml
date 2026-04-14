@@ -29,8 +29,11 @@ parameters:
     type: enum
     node: DigitalIOControl/LineSelector
   - name: line2_linemode
-    type: bool
+    type: enum
     node: DigitalIOControl/LineMode
+  - name: line2_linesource # valid values: "ExposureActive", "ExternalTriggerActive", "UserOutput2"
+    type: enum
+    node: DigitalIOControl/LineSource
   - name: line3_selector  # NOT TESTED probably green wire: non-isolated input/output
     type: enum
     node: DigitalIOControl/LineSelector
@@ -62,7 +65,7 @@ parameters:
     type: enum
     # valid values are e.g. "FrameStart", "ExposureActive"
     node: AcquisitionControl/TriggerSelector
-  - name: trigger_mode  # NOT TESTED!
+  - name: trigger_mode_first  # NOT TESTED!
     type: enum
     # valid values are "On" and "Off"
     node: AcquisitionControl/TriggerMode
@@ -77,6 +80,10 @@ parameters:
     type: enum
     # valid values: "Off" and "ReadOut"
     node: AcquisitionControl/TriggerOverlap
+  - name: trigger_mode_final  # NOT TESTED!
+    type: enum
+    # valid values are "On" and "Off"
+    node: AcquisitionControl/TriggerMode
   #
   # --------- chunk control
   #
@@ -111,3 +118,21 @@ parameters:
   - name: chunk_enable_timestamp
     type: bool
     node: ChunkDataControl/ChunkEnable
+
+# Image Acquisitions
+  - name: image_width
+    type: int
+    node: ImageFormatControl/Width
+  - name: image_height
+    type: int
+    node: ImageFormatControl/Height
+  - name: offset_x
+    type: int
+    node: ImageFormatControl/OffsetX
+  - name: offset_y
+    type: int
+    node: ImageFormatControl/OffsetY
+  - name: pixel_format
+    type: enum
+    # valid values are e.g. "Mono8", "BayerGB8", ...
+    node: ImageFormatControl/PixelFormat
