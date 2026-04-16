@@ -43,6 +43,10 @@ parameters:
   #
   # -------- acquisition control
   #
+  - name: trigger_mode_first  # NOT TESTED!
+    type: enum
+    # valid values are "On" and "Off"
+    node: AcquisitionControl/TriggerMode
   - name: exposure_auto
     type: enum
     # valid values: Continuous and Off
@@ -52,23 +56,19 @@ parameters:
     node: AcquisitionControl/ExposureTime
   - name: frame_rate_auto
     type: enum
-    # enum values: Continuous and Off
     node: AcquisitionControl/AcquisitionFrameRateAuto
-  - name: frame_rate
-    type: float
-    node: AcquisitionControl/AcquisitionFrameRate
+    # enum values: Continuous and Off
   - name: frame_rate_enable
     type: bool
     # NOTE: ..Enabled vs ..Enable on the blackfly_s
     node: AcquisitionControl/AcquisitionFrameRateEnabled
+  - name: frame_rate
+    type: float
+    node: AcquisitionControl/AcquisitionFrameRate
   - name: trigger_selector  # NOT TESTED!
     type: enum
     # valid values are e.g. "FrameStart", "ExposureActive"
     node: AcquisitionControl/TriggerSelector
-  - name: trigger_mode_first  # NOT TESTED!
-    type: enum
-    # valid values are "On" and "Off"
-    node: AcquisitionControl/TriggerMode
   - name: trigger_source  # NOT TESTED!
     type: enum
     # valid values are "Software", "Line<0,2,3>"
@@ -76,10 +76,10 @@ parameters:
   - name: trigger_delay  # NOT TESTED!
     type: float
     node: AcquisitionControl/TriggerDelay
-  - name: trigger_overlap  # NOT TESTED!
-    type: enum
-    # valid values: "Off" and "ReadOut"
-    node: AcquisitionControl/TriggerOverlap
+  # - name: trigger_overlap  # NOT TESTED!
+  #   type: enum
+  #   # valid values: "Off" and "ReadOut"
+  #   node: AcquisitionControl/TriggerOverlap
   - name: trigger_mode_final  # NOT TESTED!
     type: enum
     # valid values are "On" and "Off"

@@ -219,8 +219,9 @@ void Camera::makePublishers()
 {
   metaPub_ = rclcpp::create_publisher<flir_camera_msgs::msg::ImageMetaData>(
     node_parameters_interface_, node_topics_interface_, "~/" + topicPrefix_ + "meta",
-    rclcpp::QoS(1));
-  pub_ = imageTransport_->advertiseCamera("~/" + topicPrefix_ + "image_raw", qosDepth_);
+    rclcpp::SensorDataQoS().keep_last(qosDepth_));
+    //pub_ = image_transport::create_camera_publisher(imageTransport_->, "~/" + topicPrefix_ + "image_raw", rclcpp::SensorDataQoS().keep_last(qosDepth_));
+    pub_ = imageTransport_->advertiseCamera("~/" + topicPrefix_ + "image_raw", qosDepth_);
 }
 
 void Camera::makeSubscribers()

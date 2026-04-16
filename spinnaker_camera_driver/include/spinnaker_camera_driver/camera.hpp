@@ -221,7 +221,7 @@ private:
   uint32_t droppedCount_{0};
   uint32_t queuedCount_{0};
   rclcpp::Time lastStatusTime_;
-  int qosDepth_{4};
+  int qosDepth_{10};
   std::shared_ptr<Synchronizer> synchronizer_;
   std::shared_ptr<ExposureController> exposureController_;
   bool firstSynchronizedFrame_{true};
