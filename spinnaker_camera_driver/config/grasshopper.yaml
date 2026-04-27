@@ -120,18 +120,18 @@ parameters:
     node: ChunkDataControl/ChunkEnable
 
 # Image Acquisitions
-  - name: image_width
-    type: int
-    node: ImageFormatControl/Width
-  - name: image_height
-    type: int
-    node: ImageFormatControl/Height
   - name: offset_x
     type: int
     node: ImageFormatControl/OffsetX
   - name: offset_y
     type: int
     node: ImageFormatControl/OffsetY
+  - name: image_width
+    type: int
+    node: ImageFormatControl/Width
+  - name: image_height
+    type: int
+    node: ImageFormatControl/Height
   - name: pixel_format
     type: enum
     # valid values are e.g. "Mono8", "BayerGB8", ...
