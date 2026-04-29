@@ -16,16 +16,33 @@ parameters:
   - name: gain
     type: float
     node: AnalogControl/Gain
+
+  # White balance
+  - name: balance_white_auto
+    type: enum # valid values: Off, Once, Continuous
+    node: AnalogControl/BalanceWhiteAuto
+  - name: select_wb_first # valid values are:
+    type: enum
+    node: AnalogControl/BalanceRatioSelector
+  - name: balance_ratio_first
+    type: float
+    node: AnalogControl/BalanceRatio
+  - name: select_wb_second # valid values are:
+    type: enum
+    node: AnalogControl/BalanceRatioSelector
+  - name: balance_ratio_second
+    type: float
+    node: AnalogControl/BalanceRatio
   #
   # -------- digital IO control
   #
-  - name: line0_selector  # NOT TESTED: probably black wire: opto-isolated input
+  - name: line0_selector # NOT TESTED: probably black wire: opto-isolated input
     type: enum
     node: DigitalIOControl/LineSelector
-  - name: line1_selector  # NOT TESTED: probably white wire: opto-isolated output
+  - name: line1_selector # NOT TESTED: probably white wire: opto-isolated output
     type: enum
     node: DigitalIOControl/LineSelector
-  - name: line2_selector  # NOT TESTED: probably red wire: non-isolated input/output
+  - name: line2_selector # NOT TESTED: probably red wire: non-isolated input/output
     type: enum
     node: DigitalIOControl/LineSelector
   - name: line2_linemode
@@ -34,16 +51,16 @@ parameters:
   - name: line2_linesource # valid values: "ExposureActive", "ExternalTriggerActive", "UserOutput2"
     type: enum
     node: DigitalIOControl/LineSource
-  - name: line3_selector  # NOT TESTED probably green wire: non-isolated input/output
+  - name: line3_selector # NOT TESTED probably green wire: non-isolated input/output
     type: enum
     node: DigitalIOControl/LineSelector
-  - name: line3_linemode  # valid values: "Input", "Output"
+  - name: line3_linemode # valid values: "Input", "Output"
     type: enum
     node: DigitalIOControl/LineMode
   #
   # -------- acquisition control
   #
-  - name: trigger_mode_first  # NOT TESTED!
+  - name: trigger_mode_first # NOT TESTED!
     type: enum
     # valid values are "On" and "Off"
     node: AcquisitionControl/TriggerMode
@@ -65,22 +82,22 @@ parameters:
   - name: frame_rate
     type: float
     node: AcquisitionControl/AcquisitionFrameRate
-  - name: trigger_selector  # NOT TESTED!
+  - name: trigger_selector # NOT TESTED!
     type: enum
     # valid values are e.g. "FrameStart", "ExposureActive"
     node: AcquisitionControl/TriggerSelector
-  - name: trigger_source  # NOT TESTED!
+  - name: trigger_source # NOT TESTED!
     type: enum
     # valid values are "Software", "Line<0,2,3>"
     node: AcquisitionControl/TriggerSource
-  - name: trigger_delay  # NOT TESTED!
+  - name: trigger_delay # NOT TESTED!
     type: float
     node: AcquisitionControl/TriggerDelay
   # - name: trigger_overlap  # NOT TESTED!
   #   type: enum
   #   # valid values: "Off" and "ReadOut"
   #   node: AcquisitionControl/TriggerOverlap
-  - name: trigger_mode_final  # NOT TESTED!
+  - name: trigger_mode_final # NOT TESTED!
     type: enum
     # valid values are "On" and "Off"
     node: AcquisitionControl/TriggerMode
@@ -119,7 +136,7 @@ parameters:
     type: bool
     node: ChunkDataControl/ChunkEnable
 
-# Image Acquisitions
+  # Image Acquisitions
   - name: offset_x
     type: int
     node: ImageFormatControl/OffsetX
