@@ -17,6 +17,10 @@ parameters:
     type: float
     node: AnalogControl/Gain
 
+  - name: black_level
+    type: float
+    node: AnalogControl/BlackLevel
+
   # White balance
   - name: balance_white_auto
     type: enum # valid values: Off, Once, Continuous
