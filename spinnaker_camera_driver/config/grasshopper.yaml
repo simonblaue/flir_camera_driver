@@ -97,14 +97,16 @@ parameters:
   - name: trigger_delay # NOT TESTED!
     type: float
     node: AcquisitionControl/TriggerDelay
-  # - name: trigger_overlap  # NOT TESTED!
-  #   type: enum
-  #   # valid values: "Off" and "ReadOut"
-  #   node: AcquisitionControl/TriggerOverlap
+
   - name: trigger_mode_final # NOT TESTED!
     type: enum
     # valid values are "On" and "Off"
     node: AcquisitionControl/TriggerMode
+
+  - name: trigger_overlap  # Needs to be after TriggerMode On
+    type: enum
+    # valid values: "Off" and "ReadOut"
+    node: AcquisitionControl/TriggerOverlap
   #
   # --------- chunk control
   #
