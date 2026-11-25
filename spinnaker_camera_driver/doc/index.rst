@@ -36,11 +36,11 @@ submit a pull request with the camera config file you have created.
 Platforms
 ---------
 
--  ROS2 Galactic under Ubuntu 20.04 LTS (no longer actively tested)
--  ROS2 Humble/Iron under Ubuntu 22.04 LTS
-   ROS2 Rolling/Jazzy under Ubuntu 24.04 LTS
--  Spinnaker 3.1.0.79 (other versions may work as well but this is what
-   the continuous integration builds are using)
+-  ROS2 Humble under Ubuntu 22.04 LTS
+-  ROS2 Jazzy under Ubuntu 24.04 LTS
+-  ROS2 Lyrical/Rolling under Ubuntu 26.04 LTS
+-  Spinnaker 4.2.0.88 (Ubuntu 22.04) and 4.4.0.99 (beta).
+   Other versions may work as well but this is what the continuous integration builds are using.
 
 How to install
 ==============
@@ -185,6 +185,14 @@ files*, the driver has the following ROS parameters:
 -  ``min_ieee_1588_offset``: minimum PTP offset [s] before warning is triggered. Default: 0
 -  ``parameter_file``: location of the .yaml file defining the camera
    (blackfly_s.yaml etc)
+-  ``ip_address``: IPv4 address of a GigE camera, such as
+   ``192.168.1.64``, to select the camera by address instead of by
+   serial number. The camera must already have that address, and be
+   reachable from the host. If ``serial_number`` is also set, it is
+   used and ``ip_address`` is ignored with a warning.
+-  ``retry_attempts``: number of attempts, one second apart, to find
+   the camera at startup before giving up. Use -1 to retry forever.
+   Default: 5
 -  ``serial_number``: serial number of the camera. If you
    don’t know it, put in anything you like and the driver will croak
    with an error message, telling you what cameras serial numbers are
